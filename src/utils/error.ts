@@ -1,15 +1,8 @@
 import type { App } from 'vue';
+import { getCurrentApp } from './app';
 import type { MaybePromise, Option } from '@tb-dev/utils';
 
 export type ErrorHandler = (err: unknown) => MaybePromise<void>;
-
-export interface SetErrorHandlerOptions {
-  app?: App;
-}
-
-export interface HandleErrorOptions {
-  rethrow?: boolean;
-}
 
 function create() {
   let ERROR_HANDLER_FN: Option<ErrorHandler> = null;
@@ -18,20 +11,21 @@ function create() {
     return ERROR_HANDLER_FN;
   }
 
-  function set(fn: ErrorHandler, options?: SetErrorHandlerOptions) {
+  function set(fn: ErrorHandler, app: Option<App | boolean> = true) {
     ERROR_HANDLER_FN = fn;
 
-    if (options?.app) {
-      options.app.config.errorHandler = (err) => {
-        handle(err, { rethrow: true });
+    if (app) {
+      const _app = app === true ? getCurrentApp() : app;
+      _app.config.errorHandler = (err) => {
+        handle(err, true);
       };
     }
   }
 
-  function handle(err: unknown, options?: HandleErrorOptions) {
+  function handle(err: unknown, rethrow = true) {
     if (ERROR_HANDLER_FN) {
       void Promise.try(ERROR_HANDLER_FN, err);
-    } else if (options?.rethrow ?? true) {
+    } else if (rethrow) {
       // eslint-disable-next-line @typescript-eslint/only-throw-error
       throw err;
     }
