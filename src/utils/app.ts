@@ -4,20 +4,33 @@ import { type App, type InjectionKey, inject as originalInject } from 'vue';
 function create() {
   let APP: Option<App> = null;
 
-  function get() {
+  function get(): App {
     return unwrap(APP, 'no active app');
+  }
+
+  function tryGet(): Option<App> {
+    return APP;
   }
 
   function set(app: App) {
     APP = app;
   }
 
-  return { get, set };
+  function trySet(app: App) {
+    APP ??= app;
+  }
+
+  return { get, set, tryGet, trySet };
 }
 
-export const { get: getCurrentApp, set: setCurrentApp } = create();
+export const {
+  get: getCurrentApp,
+  set: setCurrentApp,
+  tryGet: tryGetCurrentApp,
+  trySet: trySetCurrentApp,
+} = create();
 
-export function runWithContext<T>(fn: () => T) {
+export function runWithContext<T>(fn: () => T): T {
   return getCurrentApp().runWithContext(fn);
 }
 
@@ -26,7 +39,7 @@ export function provide<T>(key: InjectionKey<T>, value: T) {
 }
 
 export function inject<T>(key: InjectionKey<T>): T {
-  const value = fallibleInject(key);
+  const value = tryInject(key);
   if (typeof value === 'undefined') {
     throw new TypeError('injection failed: value not provided');
   }
@@ -34,6 +47,6 @@ export function inject<T>(key: InjectionKey<T>): T {
   return value;
 }
 
-export function fallibleInject<T>(key: InjectionKey<T>) {
+export function tryInject<T>(key: InjectionKey<T>) {
   return runWithContext(() => originalInject(key));
 }

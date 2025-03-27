@@ -1,5 +1,5 @@
 import type { App } from 'vue';
-import { getCurrentApp } from './app';
+import { getCurrentApp, trySetCurrentApp } from './app';
 import type { MaybePromise, Option } from '@tb-dev/utils';
 
 export type ErrorHandler = (err: unknown) => MaybePromise<void>;
@@ -15,7 +15,14 @@ function create() {
     ERROR_HANDLER_FN = fn;
 
     if (app) {
-      const _app = app === true ? getCurrentApp() : app;
+      let _app: App;
+      if (app === true) {
+        _app = getCurrentApp();
+      } else {
+        trySetCurrentApp(app);
+        _app = app;
+      }
+
       _app.config.errorHandler = (err) => {
         handle(err, true);
       };
