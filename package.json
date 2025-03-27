@@ -29,6 +29,7 @@
     "build": "vite build",
     "format": "prettier . --write",
     "lint": "eslint . --config eslint.config.js",
+    "release": "pnpm run build && pnpm publish",
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
