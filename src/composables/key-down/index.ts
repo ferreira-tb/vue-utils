@@ -1,5 +1,6 @@
-import { effectScope } from 'vue';
+import { effectScope, toValue } from 'vue';
 import { handleError } from '../../utils/error';
+import type { MaybeNilRef } from '../../types/ref';
 import type { Fn, MaybePromise, Option } from '@tb-dev/utils';
 import {
   type KeyFilter,
@@ -14,6 +15,7 @@ export type OnKeyDownOptions = Omit<OnKeyStrokeOptions, 'eventName'> & {
   altKey?: boolean;
   ctrlKey?: boolean;
   detached?: boolean;
+  enabled?: MaybeNilRef<boolean>;
   metaKey?: boolean;
   prevent?: boolean;
   shiftKey?: boolean;
@@ -29,6 +31,7 @@ export function onKeyDown(
     altKey = false,
     ctrlKey = false,
     detached = false,
+    enabled = true,
     metaKey = false,
     prevent = true,
     shiftKey = false,
@@ -53,7 +56,7 @@ export function onKeyDown(
       e.stopPropagation();
     }
 
-    if (handler) {
+    if (toValue(enabled) && handler) {
       Promise.try(handler, e).catch(handleError);
     }
   };
