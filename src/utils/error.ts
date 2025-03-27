@@ -13,9 +13,12 @@ function create() {
     ERROR_HANDLER_FN = fn;
   }
 
-  function handle(err: unknown) {
+  function handle(err: unknown, rethrow = true) {
     if (ERROR_HANDLER_FN) {
       void Promise.try(ERROR_HANDLER_FN, err);
+    } else if (rethrow) {
+      // eslint-disable-next-line @typescript-eslint/only-throw-error
+      throw err;
     }
   }
 

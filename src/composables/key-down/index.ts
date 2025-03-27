@@ -72,9 +72,6 @@ export function onKeyDown(
     stop = scope.run(() => on())!;
   } else {
     stop = on();
-  }
-
-  if (!detached) {
     tryOnScopeDispose(() => stop());
   }
 
