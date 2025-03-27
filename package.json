@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ferreira-tb/vue-utils.git"
+    "url": "git+https://github.com/ferreira-tb/vue-utils.git"
   },
   "bugs": {
     "url": "https://github.com/ferreira-tb/vue-utils/issues"
