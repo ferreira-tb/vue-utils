@@ -93,3 +93,19 @@ export function onCtrlKeyDown(
 ) {
   return onKeyDown(key, handler, { ...options, ctrlKey: true });
 }
+
+export function onShiftKeyDown(
+  key: KeyFilter,
+  handler?: KeyDownEventHandler,
+  options?: Omit<OnKeyDownOptions, 'eventName' | 'shiftKey'>
+) {
+  return onKeyDown(key, handler, { ...options, shiftKey: true });
+}
+
+export function onCtrlShiftKeyDown(
+  key: KeyFilter,
+  handler?: KeyDownEventHandler,
+  options?: Omit<OnKeyDownOptions, 'eventName' | 'ctrlKey' | 'shiftKey'>
+) {
+  return onKeyDown(key, handler, { ...options, ctrlKey: true, shiftKey: true });
+}
