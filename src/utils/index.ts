@@ -1,3 +1,2 @@
-export { maybe } from './maybe';
-
-export { type ErrorHandler, getErrorHandler, handleError, setErrorHandler } from './error';
+export * from './error';
+export * from './maybe';
