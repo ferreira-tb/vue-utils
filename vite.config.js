@@ -18,8 +18,9 @@ export default defineConfig({
     },
     rollupOptions: {
       external: [
-        /^@vueuse/,
+        /^@tanstack/,
         /^@tb-dev/,
+        /^@vueuse/,
         'class-variance-authority',
         'clsx',
         'lucide-vue-next',
