@@ -10,7 +10,7 @@ export interface AsyncRefOptions extends Options {
 
 export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefOptions = {}) {
   const { immediate = true } = options;
-  const { execute, state } = useAsyncState<T>(fn, initial, {
+  const { execute, state, isLoading, isReady } = useAsyncState<T>(fn, initial, {
     immediate,
     onError: handleError,
     resetOnExecute: false,
@@ -19,5 +19,10 @@ export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefO
     ...options,
   });
 
-  return Object.assign(state as Readonly<ShallowRef<T>>, { execute });
+  return {
+    state: Object.assign(state as Readonly<ShallowRef<T>>, { execute }),
+    execute,
+    isLoading,
+    isReady,
+  };
 }
