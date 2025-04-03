@@ -2,7 +2,7 @@ import { defineConfig } from '@tb-dev/eslint-config';
 
 export default defineConfig({
   project: ['./tsconfig.json'],
-  ignores: ['**/components/base/*'],
+  ignores: ['**/components/__base/*'],
   features: {
     perfectionist: true,
     tailwind: false,

@@ -17,7 +17,18 @@ export default defineConfig({
       fileName: 'index',
     },
     rollupOptions: {
-      external: [/^@vueuse/, '@tb-dev/utils', 'lucide-vue-next', 'vue', 'vue-router'],
+      external: [
+        /^@vueuse/,
+        /^@tb-dev/,
+        'class-variance-authority',
+        'clsx',
+        'lucide-vue-next',
+        'reka-ui',
+        'tailwind-merge',
+        'tw-animate-css',
+        'vue',
+        'vue-router',
+      ],
     },
   },
 });
