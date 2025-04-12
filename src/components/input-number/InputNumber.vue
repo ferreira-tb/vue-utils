@@ -49,7 +49,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
   </DefineTemplate>
 
   <Label v-if="label" :class="labelClass">
-    <span>{{ label }}</span>
+    <span class="w-full">{{ label }}</span>
     <ReuseTemplate />
   </Label>
   <ReuseTemplate v-else />
