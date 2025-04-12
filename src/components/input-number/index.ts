@@ -1,4 +1,5 @@
 import InputNumber from './InputNumber.vue';
-import type { InputNumberProps } from './types';
 
-export { InputNumber, type InputNumberProps };
+export type * from './types';
+
+export { InputNumber };

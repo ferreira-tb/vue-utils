@@ -3,6 +3,8 @@ import type { Option } from '@tb-dev/utils';
 export interface InputTextProps {
   class?: string;
   disabled?: boolean;
+  label?: string;
+  labelClass?: string;
   max?: number;
   min?: number;
   modelValue: Option<string>;

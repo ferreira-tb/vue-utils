@@ -1,4 +1,5 @@
 import InputText from './InputText.vue';
-import type { InputTextProps } from './types';
 
-export { InputText, type InputTextProps };
+export type * from './types';
+
+export { InputText };
