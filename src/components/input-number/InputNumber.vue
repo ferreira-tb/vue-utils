@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { Label } from '../label';
+import { cn } from '../../utils';
 import type { InputNumberProps } from './types';
 import { createReusableTemplate } from '@vueuse/core';
 import {
@@ -38,7 +39,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
       :min
       :max
       :disabled
-      :class="props.class"
+      :class="cn('w-full', props.class)"
     >
       <NumberFieldContent>
         <NumberFieldDecrement />
