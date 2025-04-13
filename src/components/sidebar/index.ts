@@ -1,6 +1,25 @@
 import Sidebar from './Sidebar.vue';
-import type { SidebarProps } from './types';
 
-export { Sidebar, type SidebarProps };
+export type * from './types';
 
-export { useSidebar } from '../__base/sidebar';
+export { Sidebar };
+
+export {
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuAction,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSkeleton,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarRail,
+  SidebarSeparator,
+  SidebarTrigger,
+  useSidebar,
+} from '../__base/sidebar';

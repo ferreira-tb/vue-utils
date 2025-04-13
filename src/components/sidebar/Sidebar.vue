@@ -14,9 +14,10 @@ defineProps<SidebarProps>();
 
 defineSlots<{
   content?: () => VNode;
+  default?: () => VNode;
   footer?: () => VNode;
   header?: () => VNode;
-  inset: () => VNode;
+  inset?: () => VNode;
 }>();
 </script>
 
@@ -33,8 +34,10 @@ defineSlots<{
         <slot name="footer"></slot>
       </SidebarFooter>
     </Sidebar>
-    <SidebarInset>
+
+    <SidebarInset v-if="$slots.inset">
       <slot name="inset"></slot>
     </SidebarInset>
+    <slot v-else></slot>
   </SidebarProvider>
 </template>
