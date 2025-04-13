@@ -5,7 +5,6 @@ export default defineConfig({
   ignores: ['**/components/__base/*'],
   features: {
     perfectionist: true,
-    tailwind: false,
     unicorn: true,
     vue: true,
   },
