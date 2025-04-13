@@ -6,7 +6,9 @@ import type { SwitchProps } from './types';
 import { createReusableTemplate } from '@vueuse/core';
 import { Switch as BaseSwitch } from '../__base/switch';
 
-const props = defineProps<SwitchProps>();
+const props = withDefaults(defineProps<SwitchProps>(), {
+  position: 'before',
+});
 
 const toggled = defineModel<boolean>({ required: true });
 
@@ -32,9 +34,10 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
     v-if="label || $slots.label"
     :class="cn('flex flex-row items-center justify-start gap-2', labelClass)"
   >
+    <ReuseTemplate v-if="position === 'before'" />
     <span v-if="label" class="w-full">{{ label }}</span>
     <slot v-else name="label"></slot>
-    <ReuseTemplate />
+    <ReuseTemplate v-if="position === 'after'" />
   </Label>
   <ReuseTemplate v-else />
 </template>
