@@ -2,7 +2,9 @@ import type { Option } from '@tb-dev/utils';
 
 export interface TextareaProps {
   autocapitalize?: boolean;
+  autofocus?: boolean;
   class?: string;
+  cols?: number;
   disabled?: boolean;
   label?: string;
   labelClass?: string;
@@ -13,4 +15,5 @@ export interface TextareaProps {
   placeholder?: string;
   readonly?: boolean;
   required?: boolean;
+  rows?: number;
 }

@@ -25,21 +25,24 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <BaseTextarea
-      v-model.trim="value as string | undefined"
+      v-model="value as string | undefined"
       type="text"
       :autocapitalize
       autocomplete="off"
       autocorrect="off"
+      :autofocus
+      :cols
       :disabled
       :maxlength="max"
       :minlength="min"
       :placeholder
       :readonly
       :required
+      :rows
       spellcheck="false"
       :class="
         cn(
-          'h-full resize-none font-normal focus-visible:ring-0 disabled:cursor-default',
+          'size-full resize-none font-normal focus-visible:ring-0 disabled:cursor-default',
           props.class
         )
       "

@@ -25,7 +25,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <BaseInput
-      v-model.trim="value as string | undefined"
+      v-model="value as string | undefined"
       type="text"
       :placeholder
       :disabled
