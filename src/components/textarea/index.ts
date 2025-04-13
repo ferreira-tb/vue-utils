@@ -1,1 +1,5 @@
-export { Textarea } from '../__base/textarea';
+import Textarea from './Textarea.vue';
+
+export type * from './types';
+
+export { Textarea };
