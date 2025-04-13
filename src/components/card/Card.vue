@@ -2,31 +2,25 @@
 import type { VNode } from 'vue';
 import { cn } from '../../utils';
 import { toPixel } from '@tb-dev/utils';
+import type { CardProps } from './types';
 import { ScrollArea } from '../__base/scroll-area';
 import {
   Card as BaseCard,
   CardContent as BaseCardContent,
   CardDescription as BaseCardDescription,
+  CardFooter as BaseCardFooter,
   CardHeader as BaseCardHeader,
   CardTitle as BaseCardTitle,
 } from '../__base/card';
 
-interface Props {
-  contentClass?: string;
-  descriptionClass?: string;
-  headerClass?: string;
-  scrollAreaClass?: string;
-  scrollAreaHeight?: number | string;
-  titleClass?: string;
-}
-
-withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<CardProps>(), {
   scrollAreaHeight: 'auto',
 });
 
 defineSlots<{
-  default: () => VNode;
+  default?: () => VNode;
   description?: () => VNode;
+  footer?: () => VNode;
   title?: () => VNode;
 }>();
 </script>
@@ -42,7 +36,7 @@ defineSlots<{
       </BaseCardDescription>
     </BaseCardHeader>
 
-    <BaseCardContent :class="cn('p-0', contentClass)">
+    <BaseCardContent v-if="$slots.default" :class="cn('p-0', contentClass)">
       <ScrollArea
         v-if="scrollAreaHeight && scrollAreaHeight !== 'auto'"
         :class="scrollAreaClass"
@@ -52,5 +46,9 @@ defineSlots<{
       </ScrollArea>
       <slot v-else></slot>
     </BaseCardContent>
+
+    <BaseCardFooter v-if="$slots.footer" :class="footerClass">
+      <slot name="footer"></slot>
+    </BaseCardFooter>
   </BaseCard>
 </template>
