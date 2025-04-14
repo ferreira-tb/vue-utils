@@ -1,12 +1,23 @@
+import type { HTMLAttributes } from 'vue';
+
 export interface TableProps {
-  bodyClass?: string;
-  captionClass?: string;
-  footerClass?: string;
-  headerClass?: string;
+  bodyClass?: HTMLAttributes['class'];
+  bodyStyle?: HTMLAttributes['style'];
+  captionClass?: HTMLAttributes['class'];
+  captionStyle?: HTMLAttributes['style'];
+  class?: HTMLAttributes['class'];
+  containerClass?: HTMLAttributes['class'];
+  containerStyle?: HTMLAttributes['style'];
+  footerClass?: HTMLAttributes['class'];
+  footerStyle?: HTMLAttributes['style'];
+  headerClass?: HTMLAttributes['class'];
+  headerStyle?: HTMLAttributes['style'];
+  maxHeight?: number | string;
+  style?: HTMLAttributes['style'];
 }
 
 export interface TableLinkProps<T extends string> {
   label?: string;
-  linkClass?: string;
+  linkClass?: HTMLAttributes['class'];
   to: T;
 }
