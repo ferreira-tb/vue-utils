@@ -9,6 +9,7 @@ export interface TextareaProps {
   class?: HTMLAttributes['class'];
   cols?: TextareaHTMLAttributes['cols'];
   disabled?: boolean;
+  height?: number | string;
   label?: string;
   labelClass?: HTMLAttributes['class'];
   max?: TextareaHTMLAttributes['maxlength'];

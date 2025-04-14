@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import { cn } from '../../utils';
 import type { TextareaProps } from './types';
+import { computed, type CSSProperties } from 'vue';
 import { Label as BaseLabel } from '../__base/label';
+import { type Option, toPixel } from '@tb-dev/utils';
 import { createReusableTemplate } from '@vueuse/core';
 import { Textarea as BaseTextarea } from '../__base/textarea';
 
@@ -24,6 +25,10 @@ const value = computed<string | undefined>({
   // eslint-disable-next-line no-undefined
   get: () => props.modelValue ?? undefined,
   set: (it) => emit('update:modelValue', it ?? null),
+});
+
+const textareaHeight = computed<Option<CSSProperties>>(() => {
+  return props.height ? { height: toPixel(props.height) } : null;
 });
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -48,7 +53,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
       :required
       :rows
       :spellcheck
-      :style
+      :style="[textareaHeight, style]"
       :class="
         cn(
           'size-full resize-none font-normal focus-visible:ring-0 disabled:cursor-default',
