@@ -12,7 +12,7 @@ export interface TableProps {
   footerStyle?: HTMLAttributes['style'];
   headerClass?: HTMLAttributes['class'];
   headerStyle?: HTMLAttributes['style'];
-  maxHeight?: number | string;
+  height?: number | string;
   style?: HTMLAttributes['style'];
 }
 

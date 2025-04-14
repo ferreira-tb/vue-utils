@@ -19,11 +19,7 @@ defineSlots<{
 }>();
 
 const containerHeight = computed<Option<CSSProperties>>(() => {
-  if (props.maxHeight) {
-    return { maxHeight: toPixel(props.maxHeight) };
-  }
-
-  return null;
+  return props.height ? { maxHeight: toPixel(props.height) } : null;
 });
 </script>
 
