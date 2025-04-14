@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue';
-import { cn } from 'src/utils';
+import { cn } from '../../../utils';
 import { reactiveOmit } from '@vueuse/core';
 import { GripVertical } from 'lucide-vue-next';
 import {
