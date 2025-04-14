@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar.vue';
+import { default as Sidebar } from './Sidebar.vue';
 
 export type * from './types';
 

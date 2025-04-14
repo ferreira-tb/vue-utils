@@ -1,3 +1,3 @@
-import Tooltip from './Tooltip.vue';
+import { default as Tooltip } from './Tooltip.vue';
 
 export { Tooltip };

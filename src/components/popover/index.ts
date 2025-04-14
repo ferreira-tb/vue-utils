@@ -1,4 +1,4 @@
-import Popover from './Popover.vue';
+import { default as Popover } from './Popover.vue';
 
 export type * from './types';
 

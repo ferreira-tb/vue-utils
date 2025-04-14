@@ -1,4 +1,4 @@
-import Card from './Card.vue';
+import { default as Card } from './Card.vue';
 
 export type * from './types';
 

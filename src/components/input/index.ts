@@ -1,4 +1,4 @@
-import Input from './Input.vue';
+import { default as Input } from './Input.vue';
 
 export type * from './types';
 

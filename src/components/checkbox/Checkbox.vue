@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { cn } from '../../utils';
-import type { CheckboxProps } from './types';
-import type { CheckboxRootProps } from 'reka-ui';
 import { Label as BaseLabel } from '../__base/label';
 import { createReusableTemplate } from '@vueuse/core';
+import type { CheckboxProps, CheckboxValue } from './types';
 import { Checkbox as BaseCheckbox } from '../__base/checkbox';
 
 defineProps<CheckboxProps>();
 
-const value = defineModel<CheckboxRootProps['modelValue']>({ required: false });
+const value = defineModel<CheckboxValue>({ required: false });
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate();

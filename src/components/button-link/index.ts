@@ -1,4 +1,4 @@
-import ButtonLink from './ButtonLink.vue';
+import { default as ButtonLink } from './ButtonLink.vue';
 
 export type * from './types';
 

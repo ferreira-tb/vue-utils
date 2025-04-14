@@ -1,4 +1,4 @@
-import Checkbox from './Checkbox.vue';
+import { default as Checkbox } from './Checkbox.vue';
 
 export type * from './types';
 

@@ -1,4 +1,4 @@
-import ButtonIcon from './ButtonIcon.vue';
+import { default as ButtonIcon } from './ButtonIcon.vue';
 
 export type * from './types';
 

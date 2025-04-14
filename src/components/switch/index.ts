@@ -1,4 +1,4 @@
-import Switch from './Switch.vue';
+import { default as Switch } from './Switch.vue';
 
 export type * from './types';
 
