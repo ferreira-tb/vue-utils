@@ -3,6 +3,10 @@ import { Input } from '../input';
 import type { Option } from '@tb-dev/utils';
 import type { InputTextProps } from './types';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 withDefaults(defineProps<InputTextProps>(), {
   spellcheck: 'false',
 });
@@ -27,5 +31,6 @@ const value = defineModel<Option<string>>({ required: true });
     :required
     :size
     :spellcheck
+    :style
   />
 </template>

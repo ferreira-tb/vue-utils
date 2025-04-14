@@ -1,9 +1,11 @@
+import type { HTMLAttributes } from 'vue';
+
 export interface CardProps {
-  contentClass?: string;
-  descriptionClass?: string;
-  footerClass?: string;
-  headerClass?: string;
-  scrollAreaClass?: string;
+  contentClass?: HTMLAttributes['class'];
+  descriptionClass?: HTMLAttributes['class'];
+  footerClass?: HTMLAttributes['class'];
+  headerClass?: HTMLAttributes['class'];
+  scrollAreaClass?: HTMLAttributes['class'];
   scrollAreaHeight?: number | string;
-  titleClass?: string;
+  titleClass?: HTMLAttributes['class'];
 }

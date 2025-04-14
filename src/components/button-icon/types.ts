@@ -1,10 +1,10 @@
-import type { Component } from 'vue';
+import type { Component, HTMLAttributes } from 'vue';
 
 export interface ButtonIconProps<T extends string> {
-  buttonClass?: string;
-  class?: string;
+  buttonClass?: HTMLAttributes['class'];
+  class?: HTMLAttributes['class'];
   icon: Component;
-  iconClass?: string;
+  iconClass?: HTMLAttributes['class'];
   iconSize?: number;
   to?: T;
 }

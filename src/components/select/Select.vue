@@ -11,6 +11,10 @@ import {
   SelectValue as BaseSelectValue,
 } from '../__base/select';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = defineProps<SelectProps>();
 
 const emit = defineEmits<{
@@ -35,7 +39,16 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <div class="flex w-full items-center justify-center gap-2">
-      <BaseSelect v-bind="$attrs" v-model="value" :autocomplete :autofocus :disabled :required>
+      <BaseSelect
+        v-bind="$attrs"
+        v-model="value"
+        :autocomplete
+        :autofocus
+        :disabled
+        :required
+        :style
+        :class="props.class"
+      >
         <BaseSelectTrigger :class="cn('w-full', triggerClass)">
           <BaseSelectValue :placeholder />
         </BaseSelectTrigger>

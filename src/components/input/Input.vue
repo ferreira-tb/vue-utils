@@ -6,6 +6,10 @@ import { Label as BaseLabel } from '../__base/label';
 import { Input as BaseInput } from '../__base/input';
 import { createReusableTemplate } from '@vueuse/core';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = withDefaults(defineProps<InputProps>(), {
   spellcheck: 'false',
   type: 'text',
@@ -41,6 +45,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
       :required
       :size
       :spellcheck
+      :style
       :class="cn('focus-visible:ring-0 disabled:cursor-default', props.class)"
       @blur="onBlur"
     />

@@ -1,13 +1,13 @@
 import type { Option } from '@tb-dev/utils';
-import type { InputHTMLAttributes } from 'vue';
+import type { HTMLAttributes, InputHTMLAttributes } from 'vue';
 
 export interface InputProps {
   autocomplete?: InputHTMLAttributes['autocomplete'];
   autofocus?: InputHTMLAttributes['autofocus'];
-  class?: string;
+  class?: HTMLAttributes['class'];
   disabled?: InputHTMLAttributes['disabled'];
   label?: string;
-  labelClass?: string;
+  labelClass?: HTMLAttributes['class'];
   max?: InputHTMLAttributes['maxlength'];
   min?: InputHTMLAttributes['minlength'];
   modelValue: Option<string>;
@@ -17,5 +17,6 @@ export interface InputProps {
   required?: InputHTMLAttributes['required'];
   size?: InputHTMLAttributes['size'];
   spellcheck?: InputHTMLAttributes['spellcheck'];
+  style?: HTMLAttributes['style'];
   type?: InputHTMLAttributes['type'];
 }

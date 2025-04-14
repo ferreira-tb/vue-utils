@@ -1,15 +1,17 @@
 import type { Option } from '@tb-dev/utils';
-import type { SelectHTMLAttributes } from 'vue';
+import type { HTMLAttributes, SelectHTMLAttributes } from 'vue';
 
 export interface SelectProps {
   autocomplete?: SelectHTMLAttributes['autocomplete'];
   autofocus?: SelectHTMLAttributes['autofocus'];
-  contentClass?: string;
+  class?: HTMLAttributes['class'];
+  contentClass?: HTMLAttributes['class'];
   disabled?: boolean;
   label?: string;
-  labelClass?: string;
+  labelClass?: HTMLAttributes['class'];
   modelValue: Option<string>;
   placeholder?: string;
   required?: boolean;
-  triggerClass?: string;
+  style?: HTMLAttributes['style'];
+  triggerClass?: HTMLAttributes['class'];
 }

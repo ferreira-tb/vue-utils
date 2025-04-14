@@ -12,6 +12,10 @@ import {
   NumberFieldInput,
 } from '../__base/number-field';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = withDefaults(defineProps<InputNumberProps>(), {
   formatOptions: () => ({ useGrouping: false }),
 });
@@ -43,6 +47,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
       :max
       :step
       :step-snapping
+      :style
       :class="cn('w-full', props.class)"
     >
       <NumberFieldContent>

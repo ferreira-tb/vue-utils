@@ -5,7 +5,11 @@ import { createReusableTemplate } from '@vueuse/core';
 import type { CheckboxProps, CheckboxValue } from './types';
 import { Checkbox as BaseCheckbox } from '../__base/checkbox';
 
-defineProps<CheckboxProps>();
+defineOptions({
+  inheritAttrs: false,
+});
+
+const props = defineProps<CheckboxProps>();
 
 const value = defineModel<CheckboxValue>({ required: false });
 
@@ -15,7 +19,14 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <BaseCheckbox v-bind="$attrs" v-model="value" :default-value :disabled />
+    <BaseCheckbox
+      v-bind="$attrs"
+      v-model="value"
+      :default-value
+      :disabled
+      :style
+      :class="props.class"
+    />
   </DefineTemplate>
 
   <BaseLabel

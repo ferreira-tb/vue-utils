@@ -1,16 +1,16 @@
 import type { Option } from '@tb-dev/utils';
-import type { TextareaHTMLAttributes } from 'vue';
+import type { HTMLAttributes, TextareaHTMLAttributes } from 'vue';
 
 export interface TextareaProps {
   autocapitalize?: TextareaHTMLAttributes['autocapitalize'];
   autocomplete?: TextareaHTMLAttributes['autocomplete'];
   autocorrect?: TextareaHTMLAttributes['autocorrect'];
   autofocus?: TextareaHTMLAttributes['autofocus'];
-  class?: string;
+  class?: HTMLAttributes['class'];
   cols?: TextareaHTMLAttributes['cols'];
   disabled?: boolean;
   label?: string;
-  labelClass?: string;
+  labelClass?: HTMLAttributes['class'];
   max?: TextareaHTMLAttributes['maxlength'];
   min?: TextareaHTMLAttributes['minlength'];
   modelValue: Option<string>;
@@ -20,4 +20,5 @@ export interface TextareaProps {
   required?: TextareaHTMLAttributes['required'];
   rows?: TextareaHTMLAttributes['rows'];
   spellcheck?: TextareaHTMLAttributes['spellcheck'];
+  style?: HTMLAttributes['style'];
 }

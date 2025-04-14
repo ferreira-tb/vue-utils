@@ -6,6 +6,10 @@ import { Label as BaseLabel } from '../__base/label';
 import { createReusableTemplate } from '@vueuse/core';
 import { Textarea as BaseTextarea } from '../__base/textarea';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 const props = withDefaults(defineProps<TextareaProps>(), {
   autocomplete: 'off',
   autocorrect: 'off',
@@ -44,6 +48,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
       :required
       :rows
       :spellcheck
+      :style
       :class="
         cn(
           'size-full resize-none font-normal focus-visible:ring-0 disabled:cursor-default',

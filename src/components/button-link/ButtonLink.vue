@@ -6,6 +6,10 @@ import { RouterLink } from 'vue-router';
 import type { ButtonLinkProps } from './types';
 import { createReusableTemplate } from '@vueuse/core';
 
+defineOptions({
+  inheritAttrs: false,
+});
+
 withDefaults(defineProps<ButtonLinkProps<T>>(), {
   size: 'default',
   variant: 'ghost',
@@ -19,7 +23,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <Button v-bind="$attrs" :variant :size :disabled :class="cn('size-full', buttonClass)">
+    <Button v-bind="$attrs" :variant :size :disabled :style :class="cn('size-full', buttonClass)">
       <span v-if="label">{{ label }}</span>
       <slot v-else></slot>
     </Button>

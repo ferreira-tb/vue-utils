@@ -1,4 +1,6 @@
+import type { HTMLAttributes } from 'vue';
+
 export interface PopoverProps {
-  contentClass?: string;
+  contentClass?: HTMLAttributes['class'];
   keepOpen?: boolean;
 }

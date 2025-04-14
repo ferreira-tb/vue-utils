@@ -1,11 +1,11 @@
-import type { InputHTMLAttributes } from 'vue';
+import type { HTMLAttributes, InputHTMLAttributes } from 'vue';
 
 export interface InputTextProps {
   autocomplete?: InputHTMLAttributes['autocomplete'];
   autofocus?: InputHTMLAttributes['autofocus'];
   disabled?: InputHTMLAttributes['disabled'];
   label?: string;
-  labelClass?: string;
+  labelClass?: HTMLAttributes['class'];
   max?: InputHTMLAttributes['maxlength'];
   min?: InputHTMLAttributes['minlength'];
   onBlur?: () => void;
@@ -14,4 +14,5 @@ export interface InputTextProps {
   required?: InputHTMLAttributes['required'];
   size?: InputHTMLAttributes['size'];
   spellcheck?: InputHTMLAttributes['spellcheck'];
+  style?: HTMLAttributes['style'];
 }
