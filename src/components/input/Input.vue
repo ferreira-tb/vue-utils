@@ -2,14 +2,13 @@
 import { computed } from 'vue';
 import { cn } from '../../utils';
 import { Label } from '../label';
-import type { TextareaProps } from './types';
+import type { InputProps } from './types';
+import { Input as BaseInput } from '../__base/input';
 import { createReusableTemplate } from '@vueuse/core';
-import { Textarea as BaseTextarea } from '../__base/textarea';
 
-const props = withDefaults(defineProps<TextareaProps>(), {
-  autocomplete: 'off',
-  autocorrect: 'off',
+const props = withDefaults(defineProps<InputProps>(), {
   spellcheck: 'false',
+  type: 'text',
 });
 
 const emit = defineEmits<{
@@ -28,32 +27,21 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <BaseTextarea
+    <BaseInput
       v-model="value as string | undefined"
-      :autocapitalize
-      :autocomplete
-      :autocorrect
-      :autofocus
-      :cols
+      :type
+      :placeholder
       :disabled
       :maxlength="max"
       :minlength="min"
-      :placeholder
-      :readonly
-      :required
-      :rows
+      :size
       :spellcheck
-      :class="
-        cn(
-          'size-full resize-none font-normal focus-visible:ring-0 disabled:cursor-default',
-          props.class
-        )
-      "
+      :class="cn('focus-visible:ring-0 disabled:cursor-default', props.class)"
       @blur="onBlur"
     />
   </DefineTemplate>
 
-  <Label v-if="label" :class="cn('flex flex-col gap-1', labelClass)">
+  <Label v-if="label" :class="labelClass">
     <span class="w-full">{{ label }}</span>
     <ReuseTemplate />
   </Label>

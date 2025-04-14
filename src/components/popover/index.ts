@@ -1,1 +1,5 @@
-export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from '../__base/popover';
+import Popover from './Popover.vue';
+
+export type * from './types';
+
+export { Popover };

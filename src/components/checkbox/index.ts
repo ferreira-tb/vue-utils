@@ -1,1 +1,5 @@
-export { Checkbox } from '../__base/checkbox';
+import Checkbox from './Checkbox.vue';
+
+export type * from './types';
+
+export { Checkbox };

@@ -1,1 +1,3 @@
-export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../__base/tooltip';
+import Tooltip from './Tooltip.vue';
+
+export { Tooltip };

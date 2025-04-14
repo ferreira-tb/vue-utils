@@ -1,1 +1,5 @@
-export { Input } from '../__base/input';
+import Input from './Input.vue';
+
+export type * from './types';
+
+export { Input };
