@@ -6,7 +6,7 @@ import type { SwitchProps } from './types';
 import { createReusableTemplate } from '@vueuse/core';
 import { Switch as BaseSwitch } from '../__base/switch';
 
-const props = withDefaults(defineProps<SwitchProps>(), {
+withDefaults(defineProps<SwitchProps>(), {
   position: 'before',
 });
 
@@ -23,7 +23,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <BaseSwitch v-bind="$attrs" v-model="toggled" :disabled :class="props.class">
+    <BaseSwitch v-bind="$attrs" v-model="toggled" :disabled>
       <template v-if="$slots.thumb" #thumb>
         <slot name="thumb"></slot>
       </template>

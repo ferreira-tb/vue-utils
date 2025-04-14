@@ -3,7 +3,7 @@ import { Input } from '../input';
 import type { Option } from '@tb-dev/utils';
 import type { InputTextProps } from './types';
 
-const props = withDefaults(defineProps<InputTextProps>(), {
+withDefaults(defineProps<InputTextProps>(), {
   spellcheck: 'false',
 });
 
@@ -12,10 +12,8 @@ const value = defineModel<Option<string>>({ required: true });
 
 <template>
   <Input
-    v-bind="$attrs"
     v-model="value"
     type="text"
-    :class="props.class"
     :autocomplete
     :autofocus
     :disabled

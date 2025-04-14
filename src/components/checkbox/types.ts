@@ -1,11 +1,8 @@
-import type { Option } from '@tb-dev/utils';
+import type { CheckboxRootProps } from 'reka-ui';
 
 export interface CheckboxProps {
-  class?: string;
-  defaultValue?: boolean;
-  disabled?: boolean;
+  defaultValue?: CheckboxRootProps['defaultValue'];
+  disabled?: CheckboxRootProps['disabled'];
   label?: string;
   labelClass?: string;
-  modelValue?: Option<boolean>;
-  required?: boolean;
 }

@@ -4,7 +4,6 @@ import type { SelectHTMLAttributes } from 'vue';
 export interface SelectProps {
   autocomplete?: SelectHTMLAttributes['autocomplete'];
   autofocus?: SelectHTMLAttributes['autofocus'];
-  class?: string;
   contentClass?: string;
   disabled?: boolean;
   label?: string;

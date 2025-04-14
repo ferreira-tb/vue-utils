@@ -30,7 +30,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
   <DefineTemplate>
     <BaseTextarea
       v-bind="$attrs"
-      v-model="value as string | undefined"
+      v-model.trim="value as string | undefined"
       :autocapitalize
       :autocomplete
       :autocorrect

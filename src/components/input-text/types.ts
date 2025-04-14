@@ -3,7 +3,6 @@ import type { InputHTMLAttributes } from 'vue';
 export interface InputTextProps {
   autocomplete?: InputHTMLAttributes['autocomplete'];
   autofocus?: InputHTMLAttributes['autofocus'];
-  class?: string;
   disabled?: InputHTMLAttributes['disabled'];
   label?: string;
   labelClass?: string;

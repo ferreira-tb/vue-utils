@@ -1,21 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import { cn } from '../../utils';
 import type { CheckboxProps } from './types';
+import type { CheckboxRootProps } from 'reka-ui';
 import { Label as BaseLabel } from '../__base/label';
 import { createReusableTemplate } from '@vueuse/core';
 import { Checkbox as BaseCheckbox } from '../__base/checkbox';
 
-const props = defineProps<CheckboxProps>();
+defineProps<CheckboxProps>();
 
-const emit = defineEmits<{
-  'update:modelValue': [value: boolean];
-}>();
-
-const value = computed<boolean>({
-  get: () => props.modelValue ?? false,
-  set: (it) => emit('update:modelValue', it),
-});
+const value = defineModel<CheckboxRootProps['modelValue']>({ required: false });
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
@@ -23,14 +16,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <BaseCheckbox
-      v-bind="$attrs"
-      v-model="value"
-      :default-value
-      :disabled
-      :required
-      :class="props.class"
-    />
+    <BaseCheckbox v-bind="$attrs" v-model="value" :default-value :disabled />
   </DefineTemplate>
 
   <BaseLabel
