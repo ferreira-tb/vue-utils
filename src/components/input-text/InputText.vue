@@ -7,7 +7,7 @@ defineOptions({
   inheritAttrs: false,
 });
 
-withDefaults(defineProps<InputTextProps>(), {
+const props = withDefaults(defineProps<InputTextProps>(), {
   spellcheck: 'false',
 });
 
@@ -32,5 +32,6 @@ const value = defineModel<Option<string>>({ required: true });
     :size
     :spellcheck
     :style
+    :class="props.class"
   />
 </template>
