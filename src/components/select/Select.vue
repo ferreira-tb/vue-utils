@@ -35,7 +35,15 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <div class="flex w-full items-center justify-center gap-2">
-      <BaseSelect v-model="value" :disabled autocomplete="off" :class="props.class">
+      <BaseSelect
+        v-bind="$attrs"
+        v-model="value"
+        :autocomplete
+        :autofocus
+        :disabled
+        :required
+        :class="props.class"
+      >
         <BaseSelectTrigger :class="cn('w-full', triggerClass)">
           <BaseSelectValue :placeholder />
         </BaseSelectTrigger>

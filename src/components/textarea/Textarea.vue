@@ -29,6 +29,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <BaseTextarea
+      v-bind="$attrs"
       v-model="value as string | undefined"
       :autocapitalize
       :autocomplete

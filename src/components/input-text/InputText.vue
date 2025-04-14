@@ -12,9 +12,12 @@ const value = defineModel<Option<string>>({ required: true });
 
 <template>
   <Input
+    v-bind="$attrs"
     v-model="value"
     type="text"
     :class="props.class"
+    :autocomplete
+    :autofocus
     :disabled
     :label
     :label-class
@@ -22,6 +25,8 @@ const value = defineModel<Option<string>>({ required: true });
     :min
     :on-blur
     :placeholder
+    :readonly
+    :required
     :size
     :spellcheck
   />

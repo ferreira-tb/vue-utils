@@ -1,13 +1,19 @@
 import type { Option } from '@tb-dev/utils';
+import type { NumberFieldRootProps } from 'reka-ui';
 
 export interface InputNumberProps {
   class?: string;
   defaultValue?: number;
   disabled?: boolean;
-  formatOptions?: Intl.NumberFormatOptions;
+  disableDecrement?: boolean;
+  disableIncrement?: boolean;
+  disableWheelChange?: NumberFieldRootProps['disableWheelChange'];
+  formatOptions?: NumberFieldRootProps['formatOptions'];
   label?: string;
   labelClass?: string;
-  max?: number;
-  min?: number;
+  max?: NumberFieldRootProps['max'];
+  min?: NumberFieldRootProps['min'];
   modelValue: Option<number>;
+  step?: NumberFieldRootProps['step'];
+  stepSnapping?: NumberFieldRootProps['stepSnapping'];
 }

@@ -23,7 +23,14 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <BaseCheckbox v-model="value" :default-value :disabled :required :class="props.class" />
+    <BaseCheckbox
+      v-bind="$attrs"
+      v-model="value"
+      :default-value
+      :disabled
+      :required
+      :class="props.class"
+    />
   </DefineTemplate>
 
   <BaseLabel

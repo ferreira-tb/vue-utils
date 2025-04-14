@@ -19,7 +19,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <Button :variant :size :disabled :class="cn('size-full', buttonClass)">
+    <Button v-bind="$attrs" :variant :size :disabled :class="cn('size-full', buttonClass)">
       <span v-if="label">{{ label }}</span>
       <slot v-else></slot>
     </Button>

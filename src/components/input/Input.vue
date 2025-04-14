@@ -28,12 +28,17 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <BaseInput
+      v-bind="$attrs"
       v-model="value as string | undefined"
       :type
+      :autocomplete
+      :autofocus
       :placeholder
       :disabled
       :maxlength="max"
       :minlength="min"
+      :readonly
+      :required
       :size
       :spellcheck
       :class="cn('focus-visible:ring-0 disabled:cursor-default', props.class)"

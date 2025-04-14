@@ -33,18 +33,22 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <NumberField
+      v-bind="$attrs"
       v-model="value"
       :default-value
+      :disabled
+      :disable-wheel-change
       :format-options
       :min
       :max
-      :disabled
+      :step
+      :step-snapping
       :class="cn('w-full', props.class)"
     >
       <NumberFieldContent>
-        <NumberFieldDecrement />
+        <NumberFieldDecrement :disabled="disabled || disableDecrement" />
         <NumberFieldInput />
-        <NumberFieldIncrement />
+        <NumberFieldIncrement :disabled="disabled || disableIncrement" />
       </NumberFieldContent>
     </NumberField>
   </DefineTemplate>

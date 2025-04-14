@@ -2,6 +2,8 @@ import type { Option } from '@tb-dev/utils';
 import type { InputHTMLAttributes } from 'vue';
 
 export interface InputProps {
+  autocomplete?: InputHTMLAttributes['autocomplete'];
+  autofocus?: InputHTMLAttributes['autofocus'];
   class?: string;
   disabled?: InputHTMLAttributes['disabled'];
   label?: string;
@@ -11,6 +13,8 @@ export interface InputProps {
   modelValue: Option<string>;
   onBlur?: () => void;
   placeholder?: InputHTMLAttributes['placeholder'];
+  readonly?: InputHTMLAttributes['readonly'];
+  required?: InputHTMLAttributes['required'];
   size?: InputHTMLAttributes['size'];
   spellcheck?: InputHTMLAttributes['spellcheck'];
   type?: InputHTMLAttributes['type'];

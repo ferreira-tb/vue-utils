@@ -23,7 +23,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <BaseSwitch v-model="toggled" :disabled :class="props.class">
+    <BaseSwitch v-bind="$attrs" v-model="toggled" :disabled :class="props.class">
       <template v-if="$slots.thumb" #thumb>
         <slot name="thumb"></slot>
       </template>
