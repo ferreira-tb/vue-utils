@@ -3,7 +3,7 @@ import type { VNode } from 'vue';
 import { cn } from '../../utils';
 import { toPixel } from '@tb-dev/utils';
 import type { CardProps } from './types';
-import { ScrollArea } from '../__base/scroll-area';
+import { ScrollArea } from '../scroll-area';
 import {
   Card as BaseCard,
   CardContent as BaseCardContent,
