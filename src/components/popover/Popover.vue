@@ -14,7 +14,7 @@ const isOpen = defineModel<boolean>({ required: true });
 
 defineSlots<{
   default: () => VNode;
-  trigger?: () => VNode;
+  trigger: () => VNode;
 }>();
 
 const popover = useTemplateRef('contentEl');

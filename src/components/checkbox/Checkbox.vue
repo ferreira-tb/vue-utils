@@ -23,7 +23,7 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 <template>
   <DefineTemplate>
-    <BaseCheckbox v-model="value" :disabled :class="props.class" />
+    <BaseCheckbox v-model="value" :default-value :disabled :required :class="props.class" />
   </DefineTemplate>
 
   <Label v-if="label" :class="cn('flex items-center justify-start gap-1 font-normal', labelClass)">
