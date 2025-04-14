@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { cn } from '../../utils';
-import { Label } from '../label';
 import type { TextareaProps } from './types';
+import { Label as BaseLabel } from '../__base/label';
 import { createReusableTemplate } from '@vueuse/core';
 import { Textarea as BaseTextarea } from '../__base/textarea';
 
@@ -53,9 +53,9 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
     />
   </DefineTemplate>
 
-  <Label v-if="label" :class="cn('flex flex-col gap-1', labelClass)">
+  <BaseLabel v-if="label" :class="cn('flex w-full flex-col gap-1 font-normal', labelClass)">
     <span class="w-full">{{ label }}</span>
     <ReuseTemplate />
-  </Label>
+  </BaseLabel>
   <ReuseTemplate v-else />
 </template>

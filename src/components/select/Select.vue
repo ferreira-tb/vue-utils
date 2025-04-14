@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { cn } from '../../utils';
-import { Label } from '../label';
 import type { SelectProps } from './types';
 import { computed, type VNode } from 'vue';
+import { Label as BaseLabel } from '../__base/label';
 import { createReusableTemplate } from '@vueuse/core';
 import {
   Select as BaseSelect,
@@ -35,8 +35,8 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 <template>
   <DefineTemplate>
     <div class="flex w-full items-center justify-center gap-2">
-      <BaseSelect v-model="value" :disabled autocomplete="off" :class="cn('w-full', props.class)">
-        <BaseSelectTrigger>
+      <BaseSelect v-model="value" :disabled autocomplete="off" :class="props.class">
+        <BaseSelectTrigger :class="cn('w-full', triggerClass)">
           <BaseSelectValue :placeholder />
         </BaseSelectTrigger>
         <BaseSelectContent :class="contentClass">
@@ -48,9 +48,9 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
     </div>
   </DefineTemplate>
 
-  <Label v-if="label" :class="cn('flex flex-col gap-2', labelClass)">
+  <BaseLabel v-if="label" :class="cn('flex w-full flex-col gap-2 font-normal', labelClass)">
     <span class="w-full">{{ label }}</span>
     <ReuseTemplate />
-  </Label>
+  </BaseLabel>
   <ReuseTemplate v-else />
 </template>

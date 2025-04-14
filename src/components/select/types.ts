@@ -8,4 +8,5 @@ export interface SelectProps {
   labelClass?: string;
   modelValue: Option<string>;
   placeholder?: string;
+  triggerClass?: string;
 }

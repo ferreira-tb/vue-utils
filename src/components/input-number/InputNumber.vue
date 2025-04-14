@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { Label } from '../label';
 import { cn } from '../../utils';
 import type { InputNumberProps } from './types';
+import { Label as BaseLabel } from '../__base/label';
 import { createReusableTemplate } from '@vueuse/core';
 import {
   NumberField,
@@ -49,9 +49,9 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
     </NumberField>
   </DefineTemplate>
 
-  <Label v-if="label" :class="labelClass">
+  <BaseLabel v-if="label" :class="cn('flex w-full flex-col gap-2 font-normal', labelClass)">
     <span class="w-full">{{ label }}</span>
     <ReuseTemplate />
-  </Label>
+  </BaseLabel>
   <ReuseTemplate v-else />
 </template>

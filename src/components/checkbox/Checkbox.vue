@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { cn } from '../../utils';
-import { Label } from '../label';
 import type { CheckboxProps } from './types';
+import { Label as BaseLabel } from '../__base/label';
 import { createReusableTemplate } from '@vueuse/core';
 import { Checkbox as BaseCheckbox } from '../__base/checkbox';
 
@@ -26,12 +26,12 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
     <BaseCheckbox v-model="value" :default-value :disabled :required :class="props.class" />
   </DefineTemplate>
 
-  <Label
+  <BaseLabel
     v-if="label"
     :class="cn('flex flex-row items-center justify-start gap-1 font-normal', labelClass)"
   >
     <ReuseTemplate />
     <span class="w-full">{{ label }}</span>
-  </Label>
+  </BaseLabel>
   <ReuseTemplate v-else />
 </template>

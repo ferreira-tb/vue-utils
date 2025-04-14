@@ -1,0 +1,25 @@
+{
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "badge-class",
+    "content-class",
+    "date-class",
+    "description-class",
+    "footer-class",
+    "grid-class",
+    "header-class",
+    "input-class",
+    "item-class",
+    "label-class",
+    "loader-class",
+    "scroll-area-class",
+    "since-class",
+    "title-class"
+  ]
+}

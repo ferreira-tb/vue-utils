@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { cn } from '../../utils';
-import { Label } from '../label';
 import type { InputProps } from './types';
+import { Label as BaseLabel } from '../__base/label';
 import { Input as BaseInput } from '../__base/input';
 import { createReusableTemplate } from '@vueuse/core';
 
@@ -41,9 +41,9 @@ const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
     />
   </DefineTemplate>
 
-  <Label v-if="label" :class="labelClass">
+  <BaseLabel v-if="label" :class="cn('flex w-full flex-col gap-2 font-normal', labelClass)">
     <span class="w-full">{{ label }}</span>
     <ReuseTemplate />
-  </Label>
+  </BaseLabel>
   <ReuseTemplate v-else />
 </template>
