@@ -1,3 +1,5 @@
+export { PaginationList, PaginationListItem } from 'reka-ui';
+
 export {
   Pagination,
   PaginationContent,

@@ -1,11 +1,11 @@
 {
   "name": "@tb-dev/vue",
-  "version": "0.3.18",
+  "version": "0.3.19",
   "description": "Vue utilities",
   "license": "MIT",
   "type": "module",
   "private": false,
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.8.1",
   "funding": "https://github.com/sponsors/ferreira-tb",
   "author": {
     "name": "Andrew Ferreira",
