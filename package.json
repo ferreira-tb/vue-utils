@@ -1,6 +1,6 @@
 {
   "name": "@tb-dev/vue",
-  "version": "0.3.33",
+  "version": "0.3.34",
   "description": "Vue utilities",
   "license": "MIT",
   "type": "module",

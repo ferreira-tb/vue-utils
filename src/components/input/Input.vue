@@ -20,7 +20,10 @@ const emit = defineEmits<{
   'update:modelValue': [value: null | string];
 }>();
 
-const inputEl = useTemplateRef('inputEl');
+const baseInput = useTemplateRef('baseInput');
+const inputEl = computed(() => {
+  return baseInput.value?.$el as Option<HTMLInputElement>;
+});
 
 const value = computed<string | undefined>({
   // eslint-disable-next-line no-undefined
@@ -32,16 +35,24 @@ const value = computed<string | undefined>({
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
 
 function focus() {
-  (inputEl.value?.$el as Option<HTMLInputElement>)?.focus();
+  inputEl.value?.focus();
 }
 
-defineExpose({ focus });
+function blur() {
+  inputEl.value?.blur();
+}
+
+function select() {
+  inputEl.value?.select();
+}
+
+defineExpose({ inputEl, focus, blur, select });
 </script>
 
 <template>
   <DefineTemplate>
     <BaseInput
-      ref="inputEl"
+      ref="baseInput"
       v-bind="$attrs"
       v-model.trim="value as string | undefined"
       :type
