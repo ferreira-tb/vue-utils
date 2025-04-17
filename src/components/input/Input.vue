@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import { cn } from '../../utils';
 import type { InputProps } from './types';
+import type { Option } from '@tb-dev/utils';
+import { computed, useTemplateRef } from 'vue';
 import { Label as BaseLabel } from '../__base/label';
 import { Input as BaseInput } from '../__base/input';
 import { createReusableTemplate } from '@vueuse/core';
@@ -19,6 +20,8 @@ const emit = defineEmits<{
   'update:modelValue': [value: null | string];
 }>();
 
+const inputEl = useTemplateRef('inputEl');
+
 const value = computed<string | undefined>({
   // eslint-disable-next-line no-undefined
   get: () => props.modelValue ?? undefined,
@@ -27,11 +30,18 @@ const value = computed<string | undefined>({
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
+
+function focus() {
+  (inputEl.value?.$el as Option<HTMLInputElement>)?.focus();
+}
+
+defineExpose({ focus });
 </script>
 
 <template>
   <DefineTemplate>
     <BaseInput
+      ref="inputEl"
       v-bind="$attrs"
       v-model.trim="value as string | undefined"
       :type
