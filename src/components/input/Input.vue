@@ -20,9 +20,9 @@ const emit = defineEmits<{
   'update:modelValue': [value: null | string];
 }>();
 
-const baseInput = useTemplateRef('baseInput');
+const inputComponent = useTemplateRef('inputComponent');
 const inputEl = computed(() => {
-  return baseInput.value?.$el as Option<HTMLInputElement>;
+  return inputComponent.value?.$el as Option<HTMLInputElement>;
 });
 
 const value = computed<string | undefined>({
@@ -52,7 +52,7 @@ defineExpose({ inputEl, focus, blur, select });
 <template>
   <DefineTemplate>
     <BaseInput
-      ref="baseInput"
+      ref="inputComponent"
       v-bind="$attrs"
       v-model.trim="value as string | undefined"
       :type

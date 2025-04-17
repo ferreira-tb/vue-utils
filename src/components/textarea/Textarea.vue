@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { cn } from '../../utils';
 import type { TextareaProps } from './types';
-import { computed, type CSSProperties } from 'vue';
 import { Label as BaseLabel } from '../__base/label';
 import { type Option, toPixel } from '@tb-dev/utils';
 import { createReusableTemplate } from '@vueuse/core';
 import { Textarea as BaseTextarea } from '../__base/textarea';
+import { computed, type CSSProperties, useTemplateRef } from 'vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -21,6 +21,11 @@ const emit = defineEmits<{
   'update:modelValue': [value: null | string];
 }>();
 
+const textareaComponent = useTemplateRef('textareaComponent');
+const textareaEl = computed(() => {
+  return textareaComponent.value?.$el as Option<HTMLTextAreaElement>;
+});
+
 const value = computed<string | undefined>({
   // eslint-disable-next-line no-undefined
   get: () => props.modelValue ?? undefined,
@@ -33,11 +38,14 @@ const textareaHeight = computed<Option<CSSProperties>>(() => {
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
+
+defineExpose({ textareaEl });
 </script>
 
 <template>
   <DefineTemplate>
     <BaseTextarea
+      ref="textareaComponent"
       v-bind="$attrs"
       v-model.trim="value as string | undefined"
       :autocapitalize
