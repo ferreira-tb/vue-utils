@@ -15,6 +15,7 @@ export * from './input-number';
 export * from './input-text';
 export * from './label';
 export * from './link';
+export * from './loading';
 export * from './menubar';
 export * from './pagination';
 export * from './popover';
