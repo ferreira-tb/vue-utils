@@ -34,7 +34,7 @@ export function runWithContext<T>(fn: () => T): T {
   return getCurrentApp().runWithContext(fn);
 }
 
-export function provide<T>(key: InjectionKey<T>, value: T) {
+export function provide<T>(key: InjectionKey<T>, value: T): void {
   getCurrentApp().provide(key, value);
 }
 
@@ -47,6 +47,16 @@ export function inject<T>(key: InjectionKey<T>): T {
   return value;
 }
 
-export function tryInject<T>(key: InjectionKey<T>) {
+export function tryInject<T>(key: InjectionKey<T>): T | undefined {
   return runWithContext(() => originalInject(key));
+}
+
+export function tryInjectOrElse<T>(key: InjectionKey<T>, fn: () => T): T {
+  let value = tryInject(key);
+  if (typeof value === 'undefined') {
+    value = fn();
+    provide(key, value);
+  }
+
+  return value;
 }
