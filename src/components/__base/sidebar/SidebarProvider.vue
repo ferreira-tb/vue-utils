@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { cn } from '../../../utils';
-import { useEventListener, useMediaQuery, useVModel } from '@vueuse/core';
+import { useMediaQuery, useVModel } from '@vueuse/core';
 import { TooltipProvider } from 'reka-ui';
 import { computed, type HTMLAttributes, type Ref, ref } from 'vue';
 import {
   provideSidebarContext,
   SIDEBAR_COOKIE_MAX_AGE,
   SIDEBAR_COOKIE_NAME,
-  SIDEBAR_KEYBOARD_SHORTCUT,
   SIDEBAR_WIDTH,
   SIDEBAR_WIDTH_ICON,
 } from './utils';
@@ -51,13 +50,6 @@ function setOpenMobile(value: boolean) {
 function toggleSidebar() {
   return isMobile.value ? setOpenMobile(!openMobile.value) : setOpen(!open.value);
 }
-
-useEventListener('keydown', (event: KeyboardEvent) => {
-  if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
-    event.preventDefault();
-    toggleSidebar();
-  }
-});
 
 // We add a state so that we can do data-state="expanded" or "collapsed".
 // This makes it easier to style the sidebar with Tailwind classes.
