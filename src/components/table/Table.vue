@@ -21,13 +21,24 @@ defineSlots<{
 const containerHeight = computed<Option<CSSProperties>>(() => {
   return props.height ? { maxHeight: toPixel(props.height) } : null;
 });
+
+const containerWidth = computed<Option<CSSProperties>>(() => {
+  return props.width ? { maxWidth: toPixel(props.width) } : null;
+});
 </script>
 
 <template>
   <div
     data-slot="table-container"
-    :style="[containerHeight, containerStyle]"
-    :class="cn('relative w-full overflow-x-hidden overflow-y-auto', containerClass)"
+    :style="[containerHeight, containerWidth, containerStyle]"
+    :class="
+      cn(
+        'relative w-full',
+        containerWidth ? 'overflow-x-auto' : 'overflow-x-hidden',
+        containerHeight ? 'overflow-y-auto' : 'overflow-y-hidden',
+        containerClass
+      )
+    "
   >
     <table
       v-bind="$attrs"

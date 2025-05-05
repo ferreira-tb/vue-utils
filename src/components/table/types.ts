@@ -14,6 +14,7 @@ export interface TableProps {
   headerStyle?: HTMLAttributes['style'];
   height?: number | string;
   style?: HTMLAttributes['style'];
+  width?: number | string;
 }
 
 export interface TableLinkProps<T extends string> {
