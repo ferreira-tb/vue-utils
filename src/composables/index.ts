@@ -5,4 +5,5 @@ export * from './console';
 export * from './element-size';
 export * from './key-down';
 export * from './local-ref';
+export * from './session-ref';
 export * from './window-size';
