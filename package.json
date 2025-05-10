@@ -1,6 +1,6 @@
 {
   "name": "@tb-dev/vue",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Vue utilities",
   "license": "MIT",
   "type": "module",
@@ -22,41 +22,30 @@
   "keywords": [
     "vue",
     "utils",
-    "components",
     "composables"
   ],
   "scripts": {
     "build": "vite build",
+    "docs": "typedoc --plugin typedoc-plugin-mdn-links",
     "format": "prettier . --write",
     "lint": "eslint . --config eslint.config.js",
     "release": "pnpm run build && pnpm publish",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "update": "miho update major -t"
   },
   "dependencies": {
-    "@tanstack/vue-table": "^8.21.3",
     "@tb-dev/utils": "^6.0.4",
     "@vueuse/core": "^13.1.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.507.0",
-    "reka-ui": "^2.2.1",
-    "tailwind-merge": "^3.2.0",
-    "tw-animate-css": "^1.2.9",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.1",
-    "vue-sonner": "^1.3.2"
+    "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.5",
     "@tb-dev/eslint-config": "^7.1.3",
-    "@types/node": "^22.15.12",
-    "@vitejs/plugin-vue": "^5.2.3",
+    "@types/node": "^22.15.17",
     "eslint": "^9.26.0",
     "prettier": "^3.5.3",
-    "prettier-plugin-css-order": "^2.1.2",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^4.1.5",
     "tslib": "^2.8.1",
+    "typedoc": "^0.28.4",
+    "typedoc-plugin-mdn-links": "^5.0.1",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vite-plugin-dts": "^4.5.3",
@@ -71,9 +60,6 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./style": {
-      "import": "./dist/index.css"
     }
   }
 }
