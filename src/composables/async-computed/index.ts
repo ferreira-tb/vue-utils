@@ -2,7 +2,7 @@ import type { ShallowRef } from 'vue';
 import { handleError } from '../../utils/error';
 import { computedAsync, type AsyncComputedOptions as Options } from '@vueuse/core';
 
-export type AsyncComputedOptions = Omit<Options, 'shallow'>;
+export type AsyncComputedOptions = Omit<Options, 'shallow' | 'lazy'>;
 
 export function asyncComputed<T>(
   initial: T,
@@ -12,6 +12,7 @@ export function asyncComputed<T>(
   const state = computedAsync(callback, initial, {
     onError: handleError,
     shallow: true,
+    lazy: false,
     ...options,
   });
 
