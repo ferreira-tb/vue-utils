@@ -1,3 +1,4 @@
+import type { Ref, ShallowRef } from 'vue';
 import { handleError } from '../../utils/error';
 import { useAsyncState, type UseAsyncStateOptions } from '@vueuse/core';
 
@@ -9,7 +10,7 @@ export interface AsyncRefOptions extends Options {
 
 export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefOptions = {}) {
   const { immediate = true } = options;
-  const { execute, state, isLoading, isReady } = useAsyncState<T>(fn, initial, {
+  const value = useAsyncState<T>(fn, initial, {
     immediate,
     onError: handleError,
     resetOnExecute: false,
@@ -18,10 +19,14 @@ export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefO
     ...options,
   });
 
+  const execute = async () => {
+    await value.execute();
+  };
+
   return {
-    state,
+    state: value.state as ShallowRef<T>,
+    isLoading: value.isLoading as Readonly<Ref<boolean>>,
+    isReady: value.isReady as Readonly<Ref<boolean>>,
     execute,
-    isLoading,
-    isReady,
   };
 }
