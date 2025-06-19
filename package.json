@@ -1,6 +1,6 @@
 {
   "name": "@tb-dev/vue",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "Vue utilities",
   "license": "MIT",
   "type": "module",
@@ -34,14 +34,14 @@
     "update": "miho update major -t"
   },
   "dependencies": {
-    "@tb-dev/utils": "^7.0.3",
-    "@vueuse/core": "^13.3.0",
-    "vue": "^3.5.16"
+    "@tb-dev/utils": "^7.0.4",
+    "@vueuse/core": "^13.4.0",
+    "vue": "^3.5.17"
   },
   "devDependencies": {
-    "@tb-dev/eslint-config": "^7.1.7",
-    "@types/node": "^24.0.0",
-    "eslint": "^9.28.0",
+    "@tb-dev/eslint-config": "^7.1.8",
+    "@types/node": "^24.0.3",
+    "eslint": "^9.29.0",
     "prettier": "^3.5.3",
     "tslib": "^2.8.1",
     "typedoc": "^0.28.5",
