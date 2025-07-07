@@ -14,6 +14,7 @@ export type KeyDownEventHandler = Option<(event: KeyboardEvent) => MaybePromise<
 export type OnKeyDownOptions = Omit<OnKeyStrokeOptions, 'eventName'> & {
   altKey?: boolean;
   ctrlKey?: boolean;
+  dedupe?: MaybeNilRef<boolean>;
   detached?: boolean;
   enabled?: MaybeNilRef<boolean>;
   metaKey?: boolean;
@@ -30,6 +31,7 @@ export function onKeyDown(
   const {
     altKey = false,
     ctrlKey = false,
+    dedupe = true,
     detached = false,
     enabled = true,
     metaKey = false,
@@ -65,7 +67,7 @@ export function onKeyDown(
     return onKeyStroke(key, callback, {
       ...options,
       eventName: 'keydown',
-      dedupe: true,
+      dedupe,
     });
   };
 
