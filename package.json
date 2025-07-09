@@ -1,11 +1,11 @@
 {
   "name": "@tb-dev/vue",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Vue utilities",
   "license": "MIT",
   "type": "module",
   "private": false,
-  "packageManager": "pnpm@10.12.4",
+  "packageManager": "pnpm@10.13.1",
   "funding": "https://github.com/sponsors/ferreira-tb",
   "author": {
     "name": "Andrew Ferreira",
@@ -39,15 +39,15 @@
     "vue": "^3.5.17"
   },
   "devDependencies": {
-    "@tb-dev/eslint-config": "^7.1.10",
-    "@types/node": "^24.0.10",
+    "@tb-dev/eslint-config": "^8.0.0",
+    "@types/node": "^24.0.12",
     "eslint": "^9.30.1",
     "prettier": "^3.6.2",
     "tslib": "^2.8.1",
     "typedoc": "^0.28.7",
     "typedoc-plugin-mdn-links": "^5.0.3",
     "typescript": "~5.8.3",
-    "vite": "^7.0.2",
+    "vite": "^7.0.3",
     "vite-plugin-dts": "^4.5.4"
   },
   "files": [
