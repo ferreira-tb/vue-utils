@@ -1,5 +1,5 @@
-import { ref } from 'vue';
 import { Mutex } from 'es-toolkit';
+import { readonly, ref } from 'vue';
 
 export function useMutex() {
   const mutex = new Mutex();
@@ -15,5 +15,9 @@ export function useMutex() {
     locked.value = mutex.isLocked;
   }
 
-  return { locked, acquire, release };
+  return {
+    locked: readonly(locked),
+    acquire,
+    release,
+  };
 }
