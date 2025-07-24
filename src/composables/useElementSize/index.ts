@@ -1,4 +1,4 @@
-import { useWindowHeight, useWindowWidth } from '../window-size';
+import { useWindowHeight, useWindowWidth } from '../useWindowSize';
 import { computed, type MaybeRefOrGetter, type Ref, toRef } from 'vue';
 import { type MaybeElement, useElementSize as original } from '@vueuse/core';
 

@@ -1,6 +1,8 @@
 import type { Ref } from 'vue';
 import { useWindowSize } from '@vueuse/core';
 
+export { useWindowSize };
+
 export function useWindowHeight() {
   return useWindowSize().height as Readonly<Ref<number>>;
 }
