@@ -15,9 +15,21 @@ export function useMutex() {
     locked.value = mutex.isLocked;
   }
 
+  function lock<T = unknown>(fn: () => Promise<T>) {
+    const { resolve, reject, promise } = Promise.withResolvers<T>();
+    acquire()
+      .then(() => fn())
+      .then((value) => resolve(value))
+      .catch(reject)
+      .finally(release);
+
+    return promise;
+  }
+
   return {
     locked: readonly(locked),
     acquire,
     release,
+    lock,
   };
 }
