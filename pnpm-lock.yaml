@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@tb-dev/utils':
-        specifier: ^7.0.11
-        version: 7.0.11
+        specifier: ^7.0.12
+        version: 7.0.12
       '@vueuse/core':
         specifier: ^13.7.0
         version: 13.7.0(vue@3.5.18(typescript@5.9.2))
@@ -30,9 +30,6 @@ importers:
       eslint:
         specifier: ^9.33.0
         version: 9.33.0(jiti@2.4.2)
-      prettier:
-        specifier: ^3.6.2
-        version: 3.6.2
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -485,8 +482,8 @@ packages:
     resolution: {integrity: sha512-NQgaH/FoW2jhiIfXaT4H15zlAStOaGHei8YCFR1iI3Wev9chWNMglMiOLzffrVIIU2QFf5xKE6R6qyctsDMFlA==}
     engines: {node: '>=22'}
 
-  '@tb-dev/utils@7.0.11':
-    resolution: {integrity: sha512-etFrlxeo+/8NjVK8Gno6avWdIao6BxvZliSmG6HGkhvqRjeh6LRxae8fNpWKQKEwAy6wTDmbkB/WRs7jcKDiaA==}
+  '@tb-dev/utils@7.0.12':
+    resolution: {integrity: sha512-narHBok/Mos8T6z33wUn2PsA9nKr39Wk9JHDSdyMFSgbx9uRRFxPfg3cf84mDFbSWhr0R4BQR91EZDcgiFHfUg==}
 
   '@types/argparse@1.0.38':
     resolution: {integrity: sha512-ebDJ9b0e702Yr7pWgB0jzm+CX4Srzz8RcXtLJDJB+BSccqMa36uyH/zUsSYao5+BD1ytv3k3rPYCq4mAE1hsXA==}
@@ -1330,11 +1327,6 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier@3.6.2:
-    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
-    engines: {node: '>=14'}
-    hasBin: true
-
   punycode.js@2.3.1:
     resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
     engines: {node: '>=6'}
@@ -1956,7 +1948,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@tb-dev/utils@7.0.11': {}
+  '@tb-dev/utils@7.0.12': {}
 
   '@types/argparse@1.0.38': {}
 
@@ -2866,8 +2858,6 @@ snapshots:
       source-map-js: 1.2.1
 
   prelude-ls@1.2.1: {}
-
-  prettier@3.6.2: {}
 
   punycode.js@2.3.1: {}
 
