@@ -26,7 +26,7 @@ export type OnKeyDownOptions = Omit<OnKeyStrokeOptions, 'eventName'> & {
 export function onKeyDown(
   key: KeyFilter,
   handler?: KeyDownEventHandler,
-  options: OnKeyDownOptions = {}
+  options: OnKeyDownOptions = {},
 ) {
   const {
     altKey = false,
@@ -75,7 +75,8 @@ export function onKeyDown(
   if (detached) {
     const scope = effectScope(/* detached */ true);
     stop = scope.run(() => on())!;
-  } else {
+  }
+  else {
     stop = on();
     tryOnScopeDispose(() => stop());
   }
@@ -86,7 +87,7 @@ export function onKeyDown(
 export function onAltKeyDown(
   key: KeyFilter,
   handler?: KeyDownEventHandler,
-  options?: Omit<OnKeyDownOptions, 'altKey' | 'eventName'>
+  options?: Omit<OnKeyDownOptions, 'altKey' | 'eventName'>,
 ) {
   return onKeyDown(key, handler, { ...options, altKey: true });
 }
@@ -94,7 +95,7 @@ export function onAltKeyDown(
 export function onCtrlKeyDown(
   key: KeyFilter,
   handler?: KeyDownEventHandler,
-  options?: Omit<OnKeyDownOptions, 'ctrlKey' | 'eventName'>
+  options?: Omit<OnKeyDownOptions, 'ctrlKey' | 'eventName'>,
 ) {
   return onKeyDown(key, handler, { ...options, ctrlKey: true });
 }
@@ -102,7 +103,7 @@ export function onCtrlKeyDown(
 export function onShiftKeyDown(
   key: KeyFilter,
   handler?: KeyDownEventHandler,
-  options?: Omit<OnKeyDownOptions, 'eventName' | 'shiftKey'>
+  options?: Omit<OnKeyDownOptions, 'eventName' | 'shiftKey'>,
 ) {
   return onKeyDown(key, handler, { ...options, shiftKey: true });
 }
@@ -110,7 +111,7 @@ export function onShiftKeyDown(
 export function onCtrlShiftKeyDown(
   key: KeyFilter,
   handler?: KeyDownEventHandler,
-  options?: Omit<OnKeyDownOptions, 'eventName' | 'ctrlKey' | 'shiftKey'>
+  options?: Omit<OnKeyDownOptions, 'eventName' | 'ctrlKey' | 'shiftKey'>,
 ) {
   return onKeyDown(key, handler, { ...options, ctrlKey: true, shiftKey: true });
 }

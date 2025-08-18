@@ -1,6 +1,6 @@
 {
   "name": "@tb-dev/vue",
-  "version": "3.1.2",
+  "version": "3.2.0",
   "description": "Vue utilities",
   "license": "MIT",
   "type": "module",
@@ -27,7 +27,7 @@
   "scripts": {
     "build": "vite build",
     "docs": "typedoc --plugin typedoc-plugin-mdn-links",
-    "format": "prettier . --write",
+    "format": "dprint fmt",
     "lint": "eslint . --config eslint.config.js",
     "release": "pnpm run build && pnpm publish",
     "type-check": "tsc --noEmit",
@@ -35,15 +35,14 @@
   },
   "dependencies": {
     "@tb-dev/utils": "^7.0.11",
-    "@vueuse/core": "^13.6.0",
-    "es-toolkit": "^1.39.9",
+    "@vueuse/core": "^13.7.0",
+    "es-toolkit": "^1.39.10",
     "vue": "^3.5.18"
   },
   "devDependencies": {
     "@tb-dev/eslint-config": "^8.0.5",
-    "@types/node": "^24.2.1",
+    "@types/node": "^24.3.0",
     "eslint": "^9.33.0",
-    "prettier": "^3.6.2",
     "tslib": "^2.8.1",
     "typedoc": "^0.28.10",
     "typedoc-plugin-mdn-links": "^5.0.8",

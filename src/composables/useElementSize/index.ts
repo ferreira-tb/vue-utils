@@ -12,7 +12,7 @@ export function useHeight<T extends MaybeElement>(element: MaybeRefOrGetter<T>) 
 
 export function useHeightDiff<T extends MaybeElement>(
   element: MaybeRefOrGetter<T>,
-  lhs?: MaybeRefOrGetter<number>
+  lhs?: MaybeRefOrGetter<number>,
 ) {
   const height = useHeight(element);
   const lhsRef = lhs ? toRef(lhs) : useWindowHeight();
@@ -25,7 +25,7 @@ export function useWidth<T extends MaybeElement>(element: MaybeRefOrGetter<T>) {
 
 export function useWidthDiff<T extends MaybeElement>(
   element: MaybeRefOrGetter<T>,
-  lhs?: MaybeRefOrGetter<number>
+  lhs?: MaybeRefOrGetter<number>,
 ) {
   const width = useWidth(element);
   const lhsRef = lhs ? toRef(lhs) : useWindowWidth();

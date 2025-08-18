@@ -14,7 +14,8 @@ export function useMutex(options?: UseMutexOptions) {
   let onError: Option<(err: unknown) => void>;
   if (typeof options?.onError === 'function') {
     onError = options.onError;
-  } else if (options?.onError !== false) {
+  }
+  else if (options?.onError !== false) {
     onError = handleError;
   }
 

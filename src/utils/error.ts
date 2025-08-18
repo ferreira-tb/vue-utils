@@ -4,41 +4,33 @@ import type { MaybePromise, Option } from '@tb-dev/utils';
 
 export type ErrorHandler = (err: unknown) => MaybePromise<void>;
 
-function create() {
-  let ERROR_HANDLER_FN: Option<ErrorHandler> = null;
-
-  function get() {
-    return ERROR_HANDLER_FN;
-  }
-
-  function set(fn: ErrorHandler, app: Option<App | boolean> = true) {
-    ERROR_HANDLER_FN = fn;
-
-    if (app) {
-      let _app: App;
-      if (app === true) {
-        _app = getCurrentApp();
-      } else {
-        trySetCurrentApp(app);
-        _app = app;
-      }
-
-      _app.config.errorHandler = (err) => {
-        handle(err, true);
-      };
-    }
-  }
-
-  function handle(err: unknown, rethrow = true) {
-    if (ERROR_HANDLER_FN) {
-      void Promise.try(ERROR_HANDLER_FN, err);
-    } else if (rethrow) {
-      // eslint-disable-next-line @typescript-eslint/only-throw-error
-      throw err;
-    }
-  }
-
-  return { get, set, handle };
+export function getErrorHandler() {
+  return globalThis.__VUEUTILS__.errorHandler;
 }
 
-export const { get: getErrorHandler, set: setErrorHandler, handle: handleError } = create();
+export function setErrorHandler(fn: ErrorHandler, app: Option<App | boolean> = true) {
+  globalThis.__VUEUTILS__.errorHandler = fn;
+
+  if (app) {
+    if (app === true) {
+      app = getCurrentApp();
+    }
+    else {
+      trySetCurrentApp(app);
+    }
+
+    app.config.errorHandler = (err) => {
+      handleError(err, true);
+    };
+  }
+}
+
+export function handleError(err: unknown, rethrow = true) {
+  if (globalThis.__VUEUTILS__.errorHandler) {
+    void Promise.try(globalThis.__VUEUTILS__.errorHandler, err);
+  }
+  else if (rethrow) {
+    // eslint-disable-next-line @typescript-eslint/only-throw-error
+    throw err;
+  }
+}

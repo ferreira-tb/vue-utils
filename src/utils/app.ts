@@ -1,34 +1,21 @@
-import { type Option, unwrap } from '@tb-dev/utils';
+import { unwrap } from '@tb-dev/utils';
 import { type App, type InjectionKey, inject as originalInject } from 'vue';
 
-function create() {
-  let APP: Option<App> = null;
-
-  function get(): App {
-    return unwrap(APP, 'no active app');
-  }
-
-  function tryGet(): Option<App> {
-    return APP;
-  }
-
-  function set(app: App) {
-    APP = app;
-  }
-
-  function trySet(app: App) {
-    APP ??= app;
-  }
-
-  return { get, set, tryGet, trySet };
+export function getCurrentApp() {
+  return unwrap(globalThis.__VUEUTILS__.app, 'No active app');
 }
 
-export const {
-  get: getCurrentApp,
-  set: setCurrentApp,
-  tryGet: tryGetCurrentApp,
-  trySet: trySetCurrentApp,
-} = create();
+export function setCurrentApp(app: App) {
+  globalThis.__VUEUTILS__.app = app;
+}
+
+export function tryGetCurrentApp() {
+  return globalThis.__VUEUTILS__.app;
+}
+
+export function trySetCurrentApp(app: App) {
+  globalThis.__VUEUTILS__.app ??= app;
+}
 
 export function runWithContext<T>(fn: () => T): T {
   return getCurrentApp().runWithContext(fn);
@@ -41,7 +28,7 @@ export function provide<T>(key: InjectionKey<T>, value: T): void {
 export function inject<T>(key: InjectionKey<T>): T {
   const value = tryInject(key);
   if (typeof value === 'undefined') {
-    throw new TypeError('injection failed: value not provided');
+    throw new TypeError('Injection failed: value not provided');
   }
 
   return value;

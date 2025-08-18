@@ -9,9 +9,8 @@ export interface AsyncRefOptions extends Options {
 }
 
 export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefOptions = {}) {
-  const { immediate = true } = options;
   const value = useAsyncState<T>(fn, initial, {
-    immediate,
+    immediate: options.immediate ?? true,
     onError: handleError,
     resetOnExecute: false,
     shallow: true,

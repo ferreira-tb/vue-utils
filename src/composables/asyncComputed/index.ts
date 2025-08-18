@@ -7,7 +7,7 @@ export type AsyncComputedOptions = Omit<Options, 'shallow' | 'lazy'>;
 export function asyncComputed<T>(
   initial: T,
   callback: () => Promise<T> | T,
-  options?: AsyncComputedOptions
+  options?: AsyncComputedOptions,
 ) {
   const state = computedAsync(callback, initial, {
     onError: handleError,
