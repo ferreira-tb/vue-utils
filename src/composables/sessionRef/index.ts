@@ -5,6 +5,7 @@ import { useSessionStorage } from '@vueuse/core';
 export interface SessionRefOptions {
   deep?: boolean;
   initOnMounted?: boolean;
+  listenToStorageChanges?: boolean;
   onError?: (err: unknown) => void;
   writeDefaults?: boolean;
 }
@@ -18,6 +19,7 @@ export function sessionRef<T>(key: string, initial: T, options?: SessionRefOptio
   const session = useSessionStorage<Value<T>>(key, defaultValue, {
     deep: options?.deep ?? true,
     initOnMounted: options?.initOnMounted ?? true,
+    listenToStorageChanges: options?.listenToStorageChanges ?? true,
     onError: options?.onError ?? handleError,
     writeDefaults: options?.writeDefaults ?? true,
 

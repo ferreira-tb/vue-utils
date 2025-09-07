@@ -5,6 +5,7 @@ import { handleError } from '../../utils/error';
 export interface LocalRefOptions {
   deep?: boolean;
   initOnMounted?: boolean;
+  listenToStorageChanges?: boolean;
   onError?: (err: unknown) => void;
   writeDefaults?: boolean;
 }
@@ -18,6 +19,7 @@ export function localRef<T>(key: string, initial: T, options?: LocalRefOptions):
   const local = useLocalStorage<Value<T>>(key, defaultValue, {
     deep: options?.deep ?? true,
     initOnMounted: options?.initOnMounted ?? true,
+    listenToStorageChanges: options?.listenToStorageChanges ?? true,
     onError: options?.onError ?? handleError,
     writeDefaults: options?.writeDefaults ?? true,
 
