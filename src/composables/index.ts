@@ -7,3 +7,4 @@ export * from './sessionRef';
 export * from './asyncComputed';
 export * from './useWindowSize';
 export * from './useElementSize';
+export * from './useBreakpoints';
