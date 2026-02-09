@@ -18,7 +18,7 @@ export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefO
     ...options,
   });
 
-  const execute = async () => {
+  const load = async () => {
     await value.execute();
   };
 
@@ -26,6 +26,6 @@ export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefO
     state: value.state as ShallowRef<T>,
     loading: value.isLoading as Readonly<Ref<boolean>>,
     isReady: value.isReady as Readonly<Ref<boolean>>,
-    execute,
+    load,
   };
 }
