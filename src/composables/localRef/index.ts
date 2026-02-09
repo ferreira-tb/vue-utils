@@ -6,6 +6,7 @@ export interface LocalRefOptions {
   deep?: boolean;
   initOnMounted?: boolean;
   listenToStorageChanges?: boolean;
+  mergeDefaults?: boolean;
   onError?: (err: unknown) => void;
   writeDefaults?: boolean;
 }
@@ -20,6 +21,7 @@ export function localRef<T>(key: string, initial: T, options?: LocalRefOptions):
     deep: options?.deep ?? true,
     initOnMounted: options?.initOnMounted ?? true,
     listenToStorageChanges: options?.listenToStorageChanges ?? true,
+    mergeDefaults: options?.mergeDefaults ?? true,
     onError: options?.onError ?? handleError,
     writeDefaults: options?.writeDefaults ?? true,
 
