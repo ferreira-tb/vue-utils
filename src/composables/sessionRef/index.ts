@@ -1,25 +1,13 @@
-import { computed, type Ref } from 'vue';
+import type { Ref } from 'vue';
 import { handleError } from '../../utils/error';
-import { useSessionStorage } from '@vueuse/core';
+import { useSessionStorage, type UseStorageOptions } from '@vueuse/core';
 
-export interface SessionRefOptions {
-  deep?: boolean;
-  initOnMounted?: boolean;
-  listenToStorageChanges?: boolean;
-  onError?: (err: unknown) => void;
-  writeDefaults?: boolean;
-}
-
-interface Value<T> {
-  inner: T;
-}
-
-export function sessionRef<T>(key: string, initial: T, options?: SessionRefOptions): Ref<T> {
-  const defaultValue: Value<T> = { inner: initial };
-  const session = useSessionStorage<Value<T>>(key, defaultValue, {
+export function sessionRef<T>(key: string, initial: T, options?: UseStorageOptions<T>): Ref<T> {
+  return useSessionStorage<T>(key, initial, {
     deep: options?.deep ?? true,
     initOnMounted: options?.initOnMounted ?? true,
     listenToStorageChanges: options?.listenToStorageChanges ?? true,
+    mergeDefaults: options?.mergeDefaults ?? true,
     onError: options?.onError ?? handleError,
     writeDefaults: options?.writeDefaults ?? true,
 
@@ -27,12 +15,7 @@ export function sessionRef<T>(key: string, initial: T, options?: SessionRefOptio
       read: JSON.parse,
       write: JSON.stringify,
     },
-  });
 
-  return computed<T>({
-    get: () => session.value.inner,
-    set: (value: T) => {
-      session.value.inner = value;
-    },
+    ...options,
   });
 }

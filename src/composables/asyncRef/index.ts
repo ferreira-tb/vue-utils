@@ -24,7 +24,7 @@ export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefO
 
   return {
     state: value.state as ShallowRef<T>,
-    isLoading: value.isLoading as Readonly<Ref<boolean>>,
+    loading: value.isLoading as Readonly<Ref<boolean>>,
     isReady: value.isReady as Readonly<Ref<boolean>>,
     execute,
   };
