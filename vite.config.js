@@ -14,7 +14,7 @@ export default defineConfig({
       formats: ['es'],
       fileName: 'index',
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: [/^@tb-dev/, /^@vueuse/, /^vue/, 'es-toolkit'],
     },
   },
