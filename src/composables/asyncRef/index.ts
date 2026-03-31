@@ -9,7 +9,7 @@ export interface AsyncRefOptions extends Options {
 }
 
 export function asyncRef<T>(initial: T, fn: () => Promise<T>, options: AsyncRefOptions = {}) {
-  const value = useAsyncState<T>(fn, initial, {
+  const value = useAsyncState(fn, initial, {
     immediate: options.immediate ?? true,
     onError: handleError,
     resetOnExecute: false,

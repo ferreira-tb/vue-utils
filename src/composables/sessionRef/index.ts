@@ -3,7 +3,7 @@ import { handleError } from '../../utils/error';
 import { useSessionStorage, type UseStorageOptions } from '@vueuse/core';
 
 export function sessionRef<T>(key: string, initial: T, options?: UseStorageOptions<T>): Ref<T> {
-  return useSessionStorage<T>(key, initial, {
+  return useSessionStorage(key, initial, {
     deep: options?.deep ?? true,
     initOnMounted: options?.initOnMounted ?? true,
     listenToStorageChanges: options?.listenToStorageChanges ?? true,

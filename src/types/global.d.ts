@@ -3,7 +3,7 @@
 
 import type { App } from 'vue';
 import type { Option } from '@tb-dev/utils';
-import type { ErrorHandler } from 'src/utils/error';
+import type { ErrorHandler } from '../utils/error';
 
 declare global {
   var __VUEUTILS__: {
