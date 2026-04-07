@@ -8,8 +8,8 @@ export default defineConfig({
   },
   overrides: {
     typescript: {
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-non-null-assertion': 'off',
+      'no-explicit-any': 'off',
+      'no-non-null-assertion': 'off',
     },
   },
 });
